@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1080" viewBox="0 0 900 1080">
+<defs>
+  <filter id="fur" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.09" numOctaves="2" seed="3"/>
+    <feDisplacementMap in="SourceGraphic" scale="9"/>
+  </filter>
+  <filter id="fuzz"><feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="1" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="2.5"/></filter>
+  <linearGradient id="knitg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#4a2a3d"/><stop offset="1" stop-color="#36202e"/></linearGradient>
+  <linearGradient id="pant" x1="0" x2="1"><stop offset="0" stop-color="#1c1c1f"/><stop offset=".5" stop-color="#2a2a2e"/><stop offset="1" stop-color="#1c1c1f"/></linearGradient>
+  <linearGradient id="furg" x1="0" x2="1"><stop offset="0" stop-color="#0d0d0d"/><stop offset=".45" stop-color="#2b2b2b"/><stop offset="1" stop-color="#0d0d0d"/></linearGradient>
+
+  <!-- shared body parts -->
+  <g id="hairback"><path d="M150 110 Q148 40 200 38 Q252 40 250 110 L262 300 Q200 318 138 300 Z" fill="#2a1c17"/></g>
+  <g id="head">
+    <rect x="186" y="160" width="28" height="48" fill="#ebc7ae"/>
+    <ellipse cx="200" cy="115" rx="45" ry="58" fill="#f1d3bd"/>
+    <path d="M155 105 Q158 50 200 48 Q244 50 246 108 Q232 72 200 70 Q176 74 155 105Z" fill="#2a1c17"/>
+    <path d="M178 112 q8 -5 16 0 M206 112 q8 -5 16 0" stroke="#3a2a24" stroke-width="2" fill="none"/>
+    <path d="M176 101 q9 -4 18 -1 M206 100 q9 -3 18 1" stroke="#3a2a24" stroke-width="2.2" fill="none"/>
+    <path d="M197 125 q3 10 -3 12" stroke="#d8ad95" stroke-width="1.6" fill="none"/>
+    <path d="M189 148 q11 6 22 0 q-11 -4 -22 0Z" fill="#c4626b"/>
+    <ellipse cx="174" cy="134" rx="9" ry="5" fill="#f2a9a0" opacity=".35"/>
+    <ellipse cx="226" cy="134" rx="9" ry="5" fill="#f2a9a0" opacity=".35"/>
+    <circle cx="156" cy="128" r="3" fill="#cfd3d8"/><circle cx="244" cy="128" r="3" fill="#cfd3d8"/>
+  </g>
+  <g id="legs">
+    <!-- wide pleated slacks, high waist -->
+    <path d="M136 400 L264 400 L276 520 L298 938 L208 938 L200 560 L192 938 L102 938 L124 520 Z" fill="url(#pant)"/>
+    <path d="M170 470 L160 930 M230 470 L240 930" stroke="#3a3a3f" stroke-width="1.4"/>
+    <path d="M200 555 L200 940" stroke="#111" stroke-width="2"/>
+    <!-- heels -->
+    <path d="M118 938 L178 938 Q192 946 196 952 L110 952Z" fill="#0f0f10"/>
+    <path d="M222 938 L282 938 L290 952 L204 952 Q208 946 222 938Z" fill="#0f0f10"/>
+  </g>
+  <g id="knit">
+    <path d="M128 215 Q200 196 272 215 L300 250 L318 520 L292 528 L276 330 L276 468 Q200 482 124 468 L124 330 L108 528 L82 520 L100 250 Z" fill="url(#knitg)" filter="url(#fuzz)"/>
+    <path d="M168 210 L200 268 L232 210 Z" fill="#ebc7ae"/>
+    <path d="M168 210 L200 268 L232 210" stroke="#2d1824" stroke-width="3" fill="none"/>
+    <path d="M124 462 Q200 476 276 462" stroke="#2d1824" stroke-width="5" fill="none"/>
+    <!-- necklace -->
+    <path d="M182 205 Q190 290 200 310 Q210 290 218 205" stroke="#c9cdd2" stroke-width="1.3" fill="none"/>
+    <path d="M200 309 q-6 10 0 16 q6 -6 0 -16Z" fill="#dfe3e8" stroke="#9aa0a6" stroke-width=".8"/>
+    <!-- hands -->
+    <ellipse cx="95" cy="538" rx="12" ry="17" fill="#f1d3bd"/><ellipse cx="305" cy="538" rx="12" ry="17" fill="#f1d3bd"/>
+  </g>
+  <g id="tie">
+    <path d="M166 200 Q200 222 236 196 L240 208 Q200 236 170 214 Z" fill="#40243a" filter="url(#fuzz)"/>
+    <path d="M168 210 Q150 330 156 560 L172 562 Q168 340 182 216 Z" fill="#43263a" filter="url(#fuzz)"/>
+  </g>
+</defs>
+
+<rect width="900" height="1080" fill="#f4f1ee"/>
+
+<!-- LOOK 1 : knit + slacks -->
+<g transform="translate(20,40)">
+  <use href="#hairback"/><use href="#legs"/><use href="#knit"/><use href="#head"/><use href="#tie"/>
+</g>
+
+<!-- LOOK 2 : fur jacket + knit + slacks -->
+<g transform="translate(470,40)">
+  <use href="#hairback"/><use href="#legs"/><use href="#knit"/><use href="#head"/>
+  <g filter="url(#fur)">
+    <!-- left half -->
+    <path d="M196 200 L150 206 Q108 214 92 250 L62 520 L104 534 L118 360 L118 500 Q150 508 182 500 L184 300 Z" fill="url(#furg)"/>
+    <!-- right half -->
+    <path d="M204 200 L250 206 Q292 214 308 250 L338 520 L296 534 L282 360 L282 500 Q250 508 218 500 L216 300 Z" fill="url(#furg)"/>
+    <!-- stand collar -->
+    <path d="M160 172 Q160 214 194 230 L192 196 Z M240 172 Q240 214 206 230 L208 196 Z" fill="#1a1a1a"/>
+    <!-- cuffs -->
+    <path d="M60 505 L106 518 L104 540 L58 526 Z M340 505 L294 518 L296 540 L342 526 Z" fill="#111"/>
+  </g>
+  <path d="M110 300 Q118 400 130 470 M290 300 Q282 400 270 470" stroke="#3a3a3a" stroke-width="2" fill="none" opacity=".6"/>
+  <ellipse cx="80" cy="548" rx="12" ry="16" fill="#f1d3bd"/><ellipse cx="320" cy="548" rx="12" ry="16" fill="#f1d3bd"/>
+  <!-- burgundy bag -->
+  <path d="M296 556 q24 -40 48 0" stroke="#5e2324" stroke-width="5" fill="none"/>
+  <rect x="290" y="556" width="62" height="56" rx="6" fill="#7a2e2e"/>
+  <circle cx="321" cy="584" r="6" fill="#c8b9a5"/>
+</g>
+
+<g font-family="Noto Sans CJK KR, Noto Sans KR, sans-serif" fill="#333" text-anchor="middle">
+  <text x="220" y="1030" font-size="22" font-weight="700">LOOK 1 · 식장 안 (니트 + 슬랙스)</text>
+  <text x="670" y="1030" font-size="22" font-weight="700">LOOK 2 · 이동할 때 (퍼 자켓 착용)</text>
+  <text x="450" y="1064" font-size="15" fill="#888">가상 모델 162cm · 58kg 기준 일러스트 (실사 아님)</text>
+</g>
+</svg>
